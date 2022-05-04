@@ -19,7 +19,6 @@ const Login = () => {
             setHandelError('RongPassword')
         }
     }
-    console.log(handel)
     return (
         <div>
             <Title title={Login}></Title>
@@ -43,7 +42,7 @@ const Login = () => {
                             <div className='mb-4'>
                                 <span>
                                     <label htmlFor="password">Enter Your Password</label>
-                                    <span className='cursor-pointer md:ml-48' onClick={() => setPassword(!password)}>{
+                                    <span className='cursor-pointer ml-[25px] md:ml-[225px]' onClick={() => setPassword(!password)}>{
                                         password ? <span> <FontAwesomeIcon icon={faEye}></FontAwesomeIcon> Show</span> :
                                             <span> <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> Hide</span>
                                     }
@@ -54,11 +53,11 @@ const Login = () => {
                                 <span>{handelError}</span>
                             </div>
                             <div className='mb-2'>
-                                <input className='w-full rounded-md outline-none  bg-[#eb1b1bec] text-white  p-1 cursor-pointer' type="submit" value='Login'/>
+                                <input className='w-full rounded-md outline-none  bg-[#eb1b1bec] hover:bg-[#d83737] text-white  p-1 cursor-pointer' type="submit" value='Login'/>
                             </div>
-                            <div className='flex justify-between items-center mb-2'>
-                                <button>Forget Password..?</button>
-                                <Link to='/register'>Register</Link>
+                            <div className='flex justify-between items-center mb-2 '>
+                                <button className='hover:text-[#eb1b1bec]'>Forget Password..?</button>
+                                <Link className='hover:text-[#eb1b1bec]' to='/register'>Register</Link>
                             </div>
                             <div className='flex justify-around items-center btn-login my-5 p-1 rounded-md cursor-pointer'>
                                 <img className='w-8' src={require('../../images/google.png')} alt="" />
