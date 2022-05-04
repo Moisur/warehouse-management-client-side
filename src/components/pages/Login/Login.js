@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import './Login.css'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+
 const Login = () => {
     const [password, setPassword] = useState(false)
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     /* =================== password ===================  */
     const [handel, setHandel] = useState('')
     const [handelError, setHandelError] = useState('')
@@ -16,9 +20,14 @@ const Login = () => {
             setHandelError('')
         }
         else {
-            setHandelError('RongPassword')
+            setHandelError('6 Digit Password')
         }
     }
+    /* ======================== Google Signup ====================== */
+    const GoogleSignup =()=>{
+        signInWithGoogle()
+    }
+
     return (
         <div>
             <Title title={Login}></Title>
@@ -59,7 +68,7 @@ const Login = () => {
                                 <button className='hover:text-[#eb1b1bec]'>Forget Password..?</button>
                                 <Link className='hover:text-[#eb1b1bec]' to='/register'>Register</Link>
                             </div>
-                            <div className='flex justify-around items-center btn-login my-5 p-1 rounded-md cursor-pointer'>
+                            <div onClick={GoogleSignup} className='flex justify-around items-center btn-login my-5 p-1 rounded-md cursor-pointer'>
                                 <img className='w-8' src={require('../../images/google.png')} alt="" />
                                 <p>Google Sing With</p>
                             </div>
