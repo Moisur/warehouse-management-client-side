@@ -8,6 +8,7 @@ import MyItems from './components/pages/My Items/MyItems';
 import NotFound from './components/pages/NotFound/NotFound';
 import Register from './components/pages/Register/Register';
 import Navbar from './components/shared/Navbar/Navbar';
+import RequireAuth from './RequireAuth';
 function App() {
   return (
     <div>
@@ -16,8 +17,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/addItems" element={<AddItems />} />
-        <Route path="/myItems" element={<MyItems />} />
+        <Route path="/addItems" element={<RequireAuth>
+          <AddItems/>
+        </RequireAuth>} />
+        <Route path="/myItems" element={<RequireAuth>
+          <MyItems />
+        </RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

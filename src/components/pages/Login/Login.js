@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import Title from '../../shared/Title/Title';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+import { Link,useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Spinner from '../../shared/Spinner/Spinner';
 
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [password, setPassword] = useState(false)
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGithub, userGithub, loadingGithub, errorGithub] = useSignInWithGithub(auth);
+    let from = location.state?.from?.pathname || "/";
+    console.log(from)
     /* =================== password ===================  */
     const [handel, setHandel] = useState('')
     const [handelError, setHandelError] = useState('')
@@ -23,11 +29,12 @@ const Login = () => {
             setHandelError('6 Digit Password')
         }
     }
-    /* ======================== Google Signup ====================== */
-    const GoogleSignup =()=>{
-        signInWithGoogle()
+    if (loading || loadingGithub) {
+        return <Spinner></Spinner>
     }
-
+    if (user || userGithub) {
+        navigate(from, { replace: true });
+    }
     return (
         <div>
             <Title title={Login}></Title>
@@ -62,17 +69,17 @@ const Login = () => {
                                 <span>{handelError}</span>
                             </div>
                             <div className='mb-2'>
-                                <input className='w-full rounded-md outline-none  bg-[#eb1b1bec] hover:bg-[#d83737] text-white  p-1 cursor-pointer' type="submit" value='Login'/>
+                                <input className='w-full rounded-md outline-none  bg-[#eb1b1bec] hover:bg-[#d83737] text-white  p-1 cursor-pointer' type="submit" value='Login' />
                             </div>
                             <div className='flex justify-between items-center mb-2 '>
                                 <button className='hover:text-[#eb1b1bec]'>Forget Password..?</button>
                                 <Link className='hover:text-[#eb1b1bec]' to='/register'>Register</Link>
                             </div>
-                            <div onClick={GoogleSignup} className='flex justify-around items-center btn-login my-5 p-1 rounded-md cursor-pointer'>
+                            <div onClick={() => signInWithGoogle()} className='flex justify-around items-center btn-login my-5 p-1 rounded-md cursor-pointer'>
                                 <img className='w-8' src={require('../../images/google.png')} alt="" />
                                 <p>Google Sing With</p>
                             </div>
-                            <div className='flex justify-around items-center btn-login p-1 rounded-md cursor-pointer'>
+                            <div onClick={() => signInWithGithub()} className='flex justify-around items-center btn-login p-1 rounded-md cursor-pointer'>
                                 <img className='w-8' src={require('../../images/github-logo.png')} alt="" />
                                 <p>Google Sing With</p>
                             </div>
