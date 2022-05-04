@@ -6,6 +6,7 @@ import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import MyItems from './components/pages/My Items/MyItems';
 import NotFound from './components/pages/NotFound/NotFound';
+import Register from './components/pages/Register/Register';
 import Navbar from './components/shared/Navbar/Navbar';
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/addItems" element={<AddItems />} />
         <Route path="/myItems" element={<MyItems />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

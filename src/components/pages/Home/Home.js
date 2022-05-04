@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
              <Title title={Home}></Title>
-            This is home pages 
+            lorem
         </div>
     );
 };
