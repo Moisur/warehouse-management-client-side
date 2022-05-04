@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Carousel = () => {
+const Home = () => {
     return (
         <div>
-            
+            This is home pages 
         </div>
     );
 };
 
-export default Carousel;
+export default Home;
