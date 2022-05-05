@@ -75,7 +75,8 @@ const Login = () => {
     }
 
     if (errorGoogle || errorGithub || error) {
-        toast.error("SingUP Error")
+        toast.error("Account-exists")
+        navigate('/')
     }
     return (
         <div>

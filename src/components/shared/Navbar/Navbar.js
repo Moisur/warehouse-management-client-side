@@ -35,23 +35,25 @@ const Navbar = () => {
         toast.success('Logout success')
         setProfile(false)
     }
+    const Location =useLocation()
+    const path = Location.pathname
     return (
-        <div className={`${useLocation().pathname.toString() === '/login' ? 'hidden' : 'block'} px-5 lg:px-14 flex items-center  z-8  justify-between  text-lg text-[#434141] sticky top-0 ${navbar ? 'SimpleStyle' : 'hiStyle'}`}>
+        <div className={`${path.includes('/login')? 'hidden':'block'} px-5 lg:px-14 flex items-center    justify-between  text-lg text-[#434141] sticky top-0 z-40 ${navbar ? 'SimpleStyle' : 'hiStyle'}`}>
             <Link to='/'> <img className='w-20 ' src={require('../../images/logo.png')} alt="" /></Link>
             <nav className='hidden md:block font-mono'>
                 <ul className='flex items-center'>
-                    <CustomLink onClick={() => setProfile()} className='px-4  py-1 ' to='/home'>Home</CustomLink>
-                    <CustomLink onClick={() => setProfile()} className='py-1  px-3' to='/blog'>Blog</CustomLink>
+                    <CustomLink to='/home' onClick={() => setProfile()} className='px-4  py-1 ' >Home</CustomLink>
+                    <CustomLink to='/blog' onClick={() => setProfile()} className='py-1  px-3' >Blogs</CustomLink>
                     {
-                        user ? <CustomLink onClick={() => setProfile()} className='py-1  px-3' to='/addItems'>Add Items</CustomLink> : ''
+                        user ? <CustomLink to='/addItems' onClick={() => setProfile()} className='py-1  px-3' >Add Items</CustomLink> : ''
                     }
                     {
-                        user ? <CustomLink onClick={() => setProfile()} className='py-1  px-3' to='/myItems'>My Items</CustomLink> : ''
+                        user ? <CustomLink to='/myItems' onClick={() => setProfile()} className='py-1  px-3' >My Items</CustomLink> : ''
                     }
                     {
                         user ? <div onClick={() => setProfile(!profile)} className='cursor-pointer px-14'>
                             <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
-                        </div> : <CustomLink className='py-1 rounded  px-14' to='/login'>Login</CustomLink>
+                        </div> : <CustomLink className='py-1   px-14' to='/login'>Login</CustomLink>
                     }
 
                 </ul>
@@ -63,7 +65,7 @@ const Navbar = () => {
                             <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/home'>Home</CustomLink>
                         </div>
                         <div className='my-10'>
-                            <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/blog'>Blog</CustomLink>
+                            <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/blog'>Blogs</CustomLink>
                         </div>
                         {
                             user ? <div className='my-10'>
@@ -82,7 +84,6 @@ const Navbar = () => {
                                 <CustomLink className='py-1  px-7' to='/login'>Login</CustomLink>
                             </div>
                         }
-
 
                     </ul>
                 </nav> :

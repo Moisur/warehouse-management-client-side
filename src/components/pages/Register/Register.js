@@ -5,7 +5,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { async } from '@firebase/util';
+
 import { toast } from 'react-toastify';
 import Spinner from '../../shared/Spinner/Spinner';
 const Register = () => {
@@ -13,7 +13,7 @@ const Register = () => {
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
     const [signInWithGithub, userGithub, loadingGithub, errorGithub] = useSignInWithGithub(auth);
     const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
-    const [updateProfile, updating, errorProfile] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
     const navigate = useNavigate();
      /* =================== password ===================  */
      const [handel, setHandel] = useState('')
@@ -54,7 +54,8 @@ const Register = () => {
     }
 
     if (errorGoogle || errorGithub || error) {
-        toast.error("SingUP Error")
+        toast.error("Account-exists")
+        navigate('/')
     }
 
     return (

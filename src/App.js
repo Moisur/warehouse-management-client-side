@@ -9,8 +9,9 @@ import NotFound from './components/pages/NotFound/NotFound';
 import Register from './components/pages/Register/Register';
 import Navbar from './components/shared/Navbar/Navbar';
 import RequireAuth from './RequireAuth';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/shared/footer/Footer';
 function App() {
   return (
     <div>
@@ -20,7 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/addItems" element={<RequireAuth>
-          <AddItems/>
+          <AddItems />
         </RequireAuth>} />
         <Route path="/myItems" element={<RequireAuth>
           <MyItems />
@@ -29,8 +30,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <ToastContainer/>
-      
+      <Footer></Footer>
+      <ToastContainer />
+
     </div>
   );
 }
