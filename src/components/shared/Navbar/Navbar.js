@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className={`${path.includes('/login')? 'hidden':'block'} px-5 lg:px-14 flex items-center    justify-between  text-lg text-[#434141] sticky top-0 z-40 ${navbar ? 'SimpleStyle' : 'hiStyle'}`}>
             <Link to='/'> <img className='w-20 ' src={require('../../images/logo.png')} alt="" /></Link>
             <nav className='hidden md:block font-mono'>
-                <ul className='flex items-center'>
+                <ul className='flex items-center text-white '>
                     <CustomLink to='/home' onClick={() => setProfile()} className='px-4  py-1 ' >Home</CustomLink>
                     <CustomLink to='/blog' onClick={() => setProfile()} className='py-1  px-3' >Blogs</CustomLink>
                     {
@@ -60,7 +60,7 @@ const Navbar = () => {
             </nav>
             {
                 Menu ? <nav>
-                    <ul className='md:hidden absolute md:p-0 left-[-2px] top-0  font-mono   text-center  bg-slate-400 md:w-0 w-full text-white h-[100vh] z-10'>
+                    <ul className='md:hidden absolute md:p-0 left-[-2px] top-0  font-mono  text-center  bg-slate-400 md:w-0 w-full text-white h-[100vh] z-10'>
                         <div className='my-10'>
                             <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/home'>Home</CustomLink>
                         </div>

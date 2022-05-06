@@ -1,6 +1,8 @@
 .SimpleStyle{
-    background-color: aqua;
+    background-color: #2dbee2
 }
 .hiStyle{
-    background-color: rgb(255, 251, 0);
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
