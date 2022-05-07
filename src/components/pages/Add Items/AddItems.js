@@ -4,9 +4,12 @@ import auth from '../../../firebase.init';
 import Spinner from '../../shared/Spinner/Spinner';
 import Title from '../../shared/Title/Title';
 import '../../pages/Home/Home.css'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddItems = () => {
     const [user] = useAuthState(auth);
+    const Navigate=useNavigate()
     const addProduct = (event) => {
         event.preventDefault()
         const email = event.target.email.value;
@@ -27,7 +30,13 @@ const AddItems = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Success:', data);
+                   if(data.insertedId){
+                       toast.success('Success Add Items')
+                       Navigate('/')
+                   }else{
+                    toast.error('Not Add Items')
+                   }
+
                 })
         }
         else {
@@ -35,12 +44,6 @@ const AddItems = () => {
         }
 
     }
-
-
-
-
-
-
     return (
         <div className='bgImages py-5'>
             <Title title={AddItems}></Title>

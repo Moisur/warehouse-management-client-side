@@ -3,7 +3,7 @@ import Title from '../../shared/Title/Title';
 
 const Blog = () => {
     return (
-        <div>
+        <div className='mb-20'>
             <Title title={Blog}></Title>
             <div className='px-14 bg-zinc-200  h-[100%] md:h-[100vh]'>
                 <div className='py-10 '>
