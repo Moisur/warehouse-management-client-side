@@ -51,6 +51,9 @@ const Navbar = () => {
                         user ? <CustomLink to='/myItems' onClick={() => setProfile()} className='py-1  px-3' >My Items</CustomLink> : ''
                     }
                     {
+                        user ? <CustomLink to='/manages' onClick={() => setProfile()} className='py-1  px-3' >Manage Items</CustomLink> : ''
+                    }
+                    {
                         user ? <div onClick={() => setProfile(!profile)} className='cursor-pointer px-14'>
                             <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
                         </div> : <CustomLink className='py-1   px-14' to='/login'>Login</CustomLink>
@@ -75,6 +78,11 @@ const Navbar = () => {
                         {
                             user ? <div className='my-10'>
                                 <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/myItems'>My Items</CustomLink>
+                            </div> : ''
+                        }
+                        {
+                            user ? <div className='my-10'>
+                                <CustomLink onClick={() => setProfile()} className='py-1  px-5' to='/manages'>Manage Items</CustomLink>
                             </div> : ''
                         }
                         {

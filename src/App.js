@@ -13,7 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/shared/footer/Footer';
 import ManagementInventories from './components/pages/Manage MentInventories/ManagementInventories';
-import Quantity from './components/pages/Quantity/Quantity';
+import Manages from './components/pages/Manage Items/Manages';
 function App() {
   return (
     <div>
@@ -28,12 +28,14 @@ function App() {
         <Route path="/myItems" element={<RequireAuth>
           <MyItems />
         </RequireAuth>} />
+        <Route path="/manages" element={<RequireAuth>
+          <Manages />
+        </RequireAuth>} />
         <Route path="/managementInventories/:id" element={<RequireAuth>
           <ManagementInventories/>
         </RequireAuth>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/quantity" element={<Quantity />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
