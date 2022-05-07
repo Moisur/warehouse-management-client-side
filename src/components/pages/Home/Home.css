@@ -3,15 +3,28 @@
     background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
     background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
+.bgStyles{
+    background: #2193b0;
+    background: -webkit-linear-gradient(to right,#2193b0,#5ac0d6e8 );
+    background: linear-gradient(to right,  #2193b0,#5ac0d6e8);
+}
 .colorImages{
-    opacity: 0.5;
     background-image: url('../../images/color4images.png');
     background-size: cover;
     background-position: center;
 }
+.bgImages{
+    background-image: url('../../images/carbg.jpg');
+    background-size: cover;
+    background-position: center;
+}
 .btnStyle{
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #f12711;
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711); 
+    background: linear-gradient(to right, #f5af19, #f12711);
 
+}
+.inputBg{
+    background-color: #1a7186;
+    color: white;
 }

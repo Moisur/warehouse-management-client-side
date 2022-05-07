@@ -5,7 +5,7 @@ const Footer = () => {
     const Location =useLocation()
     const path = Location.pathname
     return (
-        <footer style={path.includes('/login')?{display:'none'}:path.includes('/register')?{display:'none'}:{display:'block'}} className="p-4 bg-zinc-100 sm:p-6">
+        <footer style={path.includes('/login')?{display:'none'}:path.includes('/register')?{display:'none'}:path.includes('/addItems')?{display:'none'}:{display:'block'}} className="p-4 bg-zinc-100 sm:p-6">
             <div className="md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
                     <a href="https://flowbite.com" className="flex items-center">
