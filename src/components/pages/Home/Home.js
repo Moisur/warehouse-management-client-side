@@ -6,7 +6,7 @@ import svgIMages from '../../images/blob-svg.svg'
 import './Home.css'
 import { Link } from 'react-router-dom';
 const Home = () => {
-    const [product] = UserFetch('http://localhost:5000/products')
+    const [product] = UserFetch('https://rocky-tundra-02807.herokuapp.com/products')
     return (
         <div className='mb-20'>
             <Title title={Home}></Title>

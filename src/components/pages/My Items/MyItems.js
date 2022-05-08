@@ -8,8 +8,10 @@ import UserProduct from '../../shared/userProduct/UserProduct';
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const email = user.email
-    const [product] = UserFetch(`http://localhost:5000/items?email=${email}`)
+    const [product] = UserFetch(`https://rocky-tundra-02807.herokuapp.com/items?email=${email}`)
     const [slider, setSlider] = useState(false)
+
+
     return (
         <div>
             <Title title={MyItems}></Title>
@@ -36,6 +38,19 @@ const MyItems = () => {
                     ></UserProduct>)
                 }
             </div>
+            {
+                product == '' ? <div>
+
+                    <h1 className='text-center text-2xl mb-10 text-[#2193b0] font-serif font-medium'>Not Items Add !!!!</h1>
+                    <img className='w-[200px] mx-auto' src={require('../../images/noresult.png')} alt="" />
+                    <div className='text-center'>
+                        <Link className='' to='/addItems'>
+                            <h1 className=' w-[300px] mx-auto  bg-[#2193b0] rounded-lg shadow-xl  mt-5 mb-10 text-3xl px-3 py-1 text-white font-serif font-bold'>Add Items</h1>
+                        </Link>
+                    </div>
+
+                </div> : ''
+            }
             <div className='text-center'>
                 <Link className='' to='/manages'>
                     <h1 className=' w-[300px] mx-auto  bg-[#FF0066] rounded-lg shadow-xl  mt-5 mb-10 text-3xl px-3 py-1 text-white font-serif font-bold'>Manages Items</h1>

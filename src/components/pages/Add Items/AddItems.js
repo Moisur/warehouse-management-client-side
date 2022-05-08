@@ -21,7 +21,7 @@ const AddItems = () => {
         const images = event.target.images.value;
         if (email !== '' || names !== '' || prices !== '' || quantity !== '' || supplyNames !== '' || description !== '' || images !== '') {
             const data ={ email, names, prices, quantity, supplyNames, description, images };
-            fetch('http://localhost:5000/products', {
+            fetch('https://rocky-tundra-02807.herokuapp.com/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

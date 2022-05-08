@@ -5,7 +5,7 @@ import '../../pages/Home/Home.css'
 import { toast } from 'react-toastify';
 const ManagementInventories = () => {
     const { id } = useParams()
-    const [product, setRef] = UserFetch(`http://localhost:5000/products/${id}`)
+    const [product, setRef] = UserFetch(`https://rocky-tundra-02807.herokuapp.com/products/${id}`)
     const [count, setCount] = useState(0)
     const CountHandel = () => {
         setCount(count + 1)
@@ -13,7 +13,7 @@ const ManagementInventories = () => {
     const QuantityInputAdd = (event) => {
         event.preventDefault()
         const quantity = event.target.QuantityValue.value;
-        fetch(`http://localhost:5000/items/${id}`, {
+        fetch(`https://rocky-tundra-02807.herokuapp.com/items/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const ManagementInventories = () => {
                 </div>
                 <form onSubmit={QuantityInputAdd}>
                     <input className='text-black outline-none mb-4 px-3 rounded-lg py-1' type="number" name='QuantityValue' placeholder='quantity' /><br />
-                    <input className='bg-[#FF0066] text-white rounded px-3 py-1 mb-4' type="submit" value='Stock' />
+                    <input className='bg-[#FF0066] text-white rounded px-3 py-1 mb-4 cursor-pointer' type="submit" value='Stock' />
                 </form>
             </div>
             <div className='w-[400px] mx-auto my-20'>
