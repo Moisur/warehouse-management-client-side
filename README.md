@@ -14,6 +14,7 @@
 - Mobile Friendly & Responsive Design.
 - Loading Issue.
 - Easy To Login & Sign Up.
+- Mongodb control
 - More Functionality.
 
 ## Car inventory management Website Techonologies To Build : 
@@ -26,3 +27,4 @@
 5. React Hot Tost.
 6. Node js.
 7. express js.
+8. Mongodb
