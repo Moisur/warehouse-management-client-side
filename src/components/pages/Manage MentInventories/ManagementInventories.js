@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import UserFetch from '../../shared/UserFetch/UserFetch';
 import '../../pages/Home/Home.css'
+import { toast } from 'react-toastify';
 const ManagementInventories = () => {
     const { id } = useParams()
     const [product, setRef] = UserFetch(`http://localhost:5000/products/${id}`)
@@ -23,6 +24,8 @@ const ManagementInventories = () => {
             .then((data) => {
                 if (data) {
                     setRef(true)
+                    event.target.reset()
+                    toast.success('Quantity Add')
                 }
             });
     };
@@ -35,11 +38,11 @@ const ManagementInventories = () => {
                 <p>Supply Names:{product.supplyNames}</p>
                 <div className='flex justify-between items-center mb-4 '>
                     <p>quantity:{product.quantity > 0 ? product.quantity - count : 0}</p>
-                    <span className='cursor-pointer' onClick={CountHandel}>++</span>
+                    <span className='cursor-pointer bg-[#FF0066] text-white rounded px-3 py-1' onClick={CountHandel}>Delivered</span>
                 </div>
                 <form onSubmit={QuantityInputAdd}>
                     <input className='text-black outline-none mb-4 px-3 rounded-lg py-1' type="number" name='QuantityValue' placeholder='quantity' /><br />
-                    <input className='bg-[#FF0066] text-white rounded px-3 py-1 mb-4' type="submit" value='submit' />
+                    <input className='bg-[#FF0066] text-white rounded px-3 py-1 mb-4' type="submit" value='Stock' />
                 </form>
             </div>
             <div className='w-[400px] mx-auto my-20'>

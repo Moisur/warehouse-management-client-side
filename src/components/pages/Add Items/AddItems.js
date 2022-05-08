@@ -60,11 +60,11 @@ const AddItems = () => {
                     </div>
                     <div>
                         <label  className='text-white font-medium text-xl font-mono' htmlFor="prices">Product Prices</label><br />
-                        <input  className='w-full outline-none py-1 px-3 rounded-md inputBg' type="text" name='prices' id='prices' required />
+                        <input  className='w-full outline-none py-1 px-3 rounded-md inputBg' type="number" name='prices' id='prices' required />
                     </div>
                     <div>
                         <label className='text-white font-medium text-xl font-mono' htmlFor="quantity">Product Quantity</label><br />
-                        <input  className='w-full outline-none py-1 px-3 rounded-md inputBg' type="text" name='quantity' id='quantity' required />
+                        <input  className='w-full outline-none py-1 px-3 rounded-md inputBg' type="number" name='quantity' id='quantity' required />
                     </div>
                     <div>
                         <label className='text-white font-medium text-xl font-mono' htmlFor="supplyNames">Product Suppline Names</label><br />

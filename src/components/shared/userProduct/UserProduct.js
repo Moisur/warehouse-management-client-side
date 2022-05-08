@@ -12,7 +12,7 @@ const UserProduct = ({ pd,children }) => {
             <p className='py-1'>Quantity : {pd.quantity}</p>
             <p className='py-1'>Description : {pd.description}</p>
             <div className='text-center py-1'>
-                <button onClick={() => Navigate(`/managementInventories/${pd._id}`)} className={`${children?'bg-[#FF0066] text-white rounded px-3 py-1':''}`}>{children}</button>
+                <button onClick={() => Navigate(`/managementInventories/${pd._id}`)} className={`${children?'bg-[#FF0066] text-white font-serif font-medium rounded px-3 py-1':''}`}>{children}</button>
             </div>
         </div>
     );

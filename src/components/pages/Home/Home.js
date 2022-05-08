@@ -4,6 +4,7 @@ import UserFetch from '../../shared/UserFetch/UserFetch';
 import UserProduct from '../../shared/userProduct/UserProduct';
 import svgIMages from '../../images/blob-svg.svg'
 import './Home.css'
+import { Link } from 'react-router-dom';
 const Home = () => {
     const [product] = UserFetch('http://localhost:5000/products')
     return (
@@ -32,7 +33,7 @@ const Home = () => {
                     <path fill="#fff" fill-opacity="1" d="M0,192L40,197.3C80,203,160,213,240,192C320,171,400,117,480,90.7C560,64,640,64,720,69.3C800,75,880,85,960,112C1040,139,1120,181,1200,170.7C1280,160,1360,96,1400,64L1440,32L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
                 </svg>
             </div>
-            <h1 className='text-center text-4xl font-serif font-bold my-20'>Car inventory management</h1>
+            <h1 className='text-center text-4xl font-serif font-bold my-20 text-[#2193b0]'>Car inventory management</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 md:px-20 mb-10'>
 
                 {
@@ -42,7 +43,10 @@ const Home = () => {
                     >Update button</UserProduct>)
                 }
             </div>
-            <h1 className='text-center text-4xl font-serif font-bold my-20'>2022 Product </h1>
+            <Link className='' to='/manages'>
+                <h1 className=' w-[300px] mx-auto  bg-[#FF0066] rounded-lg shadow-xl  mt-14 mb-10 text-3xl px-3 py-1 text-white font-serif font-bold'>Manages Items</h1>
+            </Link>
+            <h1 className='text-center text-4xl font-serif font-bold my-20 text-[#2193b0]'>2022 Product </h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 text-center md:px-20 '>
                 <div className='shadow-2xl border-2 rounded-md mx-2'>
                     <img src={require('../../images/card3.png')} alt="" />
@@ -55,7 +59,7 @@ const Home = () => {
                     <img src={require('../../images/card2.png')} alt="" />
                 </div>
             </div>
-            <h1 className='text-center text-4xl font-serif font-bold my-20'>2023 Update Car </h1>
+            <h1 className='text-center text-4xl font-serif font-bold my-20 text-[#2193b0]'>2023 Update Car </h1>
             <div className='grid grid-cols-1 lg:grid-cols-2   gap-16 text-center md:px-20 '>
                 <div className='shadow-2xl mx-2 md:flex justify-between items-center gap-5 bg-slate-100 p-5 rounded-lg'>
                     <img className='w-[50%] mx-auto' src={require('../../images/car/car-1.png')} alt="" />
@@ -93,7 +97,7 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     );
